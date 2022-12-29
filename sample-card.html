@@ -1,0 +1,773 @@
+<style>/*    ANKINGOVERHAUL   */
+
+/* The AnKing wishes you the best of luck! Be sure to check out our YouTube channel and Instagram
+ for all things Anki and Med School related (including how to customize this card type and use these decks):
+                www.AnKingMed.com
+                        @ankingmed
+*/
+
+/*#########################################################
+################  USER CUSTOMIZATION START  ##############*/
+/* You can choose colors at www.htmlcolorcodes.com */
+
+/* TIMER ON/OFF */
+.timer {
+  display: block; /* ΓÇÿnoneΓÇÖ or ΓÇÿblockΓÇÖ */
+}
+
+/* TAGS ON/OFF DESKTOP & MOBILE*/
+#tags-container {
+  display: none; /* ΓÇÿnoneΓÇÖ or ΓÇÿblockΓÇÖ */
+}
+
+.mobile #tags-container {
+  display: none; /* ΓÇÿnoneΓÇÖ or ΓÇÿblockΓÇÖ */
+}
+
+/* MOVE TAGS UP FOR 'NO-DISTRACTIONS' ADD-ON */
+#tags-container {
+  padding-bottom: 0px; /* 0 normal, 55 to move up */
+}
+
+
+/*~~~~~~~~~FONT SIZE~~~~~~~~~*/
+/*NOTE: anything with 'px' will keep a font that size indefinitely,
+'rem' is a fraction of this size above and allows all text to change size with the above setting */
+/* Desktop */
+html {
+  font-size: 28px;
+}
+/* Mobile */
+.mobile {
+  font-size: 28px;
+}
+
+/*IPAD ADJUSTMENTS (currently not applied)
+.ipad .card,
+.ipad #extra {
+  font-size: 28px;
+}
+.ipad .hints {
+  font-size: 24px;
+}
+.ipad #firstaid,
+.ipad #sketchy,
+.ipad #pixorize,
+.ipad #physeo,
+.ipad #additional {
+  font-size: 20px !important;
+}
+*/
+
+/*REVEALED HINTS FONT SIZE*/
+.hints {
+  font-size: .85rem;
+}
+
+/*Other Fields Font Size*/
+#firstaid,
+#sketchy,
+#pixorize,
+#physeo,
+#additional {
+  font-size: .6rem !important;
+}
+
+/*Other Fields Font Size on Mobile*/
+.mobile #firstaid,
+.mobile #sketchy,
+.mobile #pixorize,
+.mobile #physeo,
+.mobile #additional {
+  font-size: 20px !important;
+}
+
+/*~~~~~~~~~FONT STYLE~~~~~~~~~*/
+.card,
+kbd {
+  font-family: Arial Greek, Arial; /*Step exam's font is Arial Greek*/
+}
+
+/*~~~~~~~MAX IMAGE HEIGHT/WIDTH~~~~~~~*/
+img {
+  max-width: 85%;
+  max-height: 100%;
+}
+
+#extra img,
+#notes img,
+#missed img,
+#pathoma img,
+#bnb img {
+  max-width: 85%;
+}
+
+#firstaid img,
+#sketchy img,
+#pixorize img,
+#physeo img,
+#additional img {
+  max-width: 60%;
+}
+
+
+/*~~~~~~~~~COLORS~~~~~~~~~/
+/* Default Text Color */
+.card {
+  color: black;
+}
+/* Background Color */
+.card {
+  background-color: #D1CFCE;
+}
+/* Cloze Color */
+.cloze {
+  color: blue;
+}
+/* "Extra" Field Color */
+#extra {
+  color: navy;
+}
+/* Hint Reveal Color */
+.hints {
+  color: #4297F9;
+}
+/* Missed Questions Hint Reveal Color */
+#missed {
+  color: red;
+}
+/* Timer Countdown Color */
+.timer {
+  color: transparent;
+}
+
+
+/*~~~~~~~~NIGHT MODE COLORS~~~~~~~~*/
+/* NM Default Text Color */
+.nightMode.card,
+.night_mode .card {
+  color: #FFFAFA !important;
+}
+/* NM Background Color */
+.nightMode.card,
+.night_mode .card {
+  background-color: #272828 !important;
+}
+/* NM Cloze Color */
+.nightMode .cloze,
+.night_mode .cloze {
+  color: #4297F9 !important;
+}
+/* NM "Extra" Field Color */
+.nightMode #extra,
+.night_mode #extra {
+  color: magenta;
+}
+/* NM Hint Reveal Color */
+.nightMode .hints,
+.night_mode .hints {
+  color: cyan;
+}
+
+
+/* ~~~~~COLOR ACCENTS FOR BOLD-ITALICS-UNDERLINE~~~~~~*/
+b {
+  color: inherit;
+}
+
+u {
+  color: inherit;
+}
+
+i {
+  color: inherit;
+}
+
+/*################  USER CUSTOMIZATION END  ################
+###########################################################*/
+
+/* Styling For Whole Card*/
+.card {
+  text-align: left;
+  font-size: 1rem;
+  height: 100%;
+  margin: 0px 15px;
+  flex-grow: 1;
+  padding-bottom: 1em;
+  margin-top: 15px;
+}
+.mobile .card {
+  padding-bottom: 5em;
+  margin: 1ex .3px;
+}
+
+/* Style the horizontal line */
+hr { opacity: .7 }
+
+/* Formatting For Timer */
+.timer {
+  font-size: 20px;
+  position: fixed;
+  right: 10px;
+  top: 10px;
+}
+
+
+/* ~~~~~~~~~ FIELDS ~~~~~~~~~ */
+/* Cloze format */
+.cloze {
+  font-weight: bold;
+}
+
+/* Adjustments For Cloze Edit In Review On Mobile */
+.clozefield,
+.mobile .editcloze {
+  display: none;
+}
+.editcloze,
+.mobile .clozefield {
+  display: block;
+}
+
+/* Text When Hint Is Shown*/
+.hints {
+  font-style: italic;
+}
+
+/*add spacing between hints and extra field*/
+.hints+#extra {
+  margin-top: 1rem;
+}
+
+/* Extra Field */
+#extra {
+  font-style: italic;
+  font-size: 1rem;
+}
+
+
+/* ~~~~~~~~~DETAILS FOR IMAGES~~~~~~~~~ */
+.mobile .card img {
+  max-width: 100% !important;
+}
+#extra img {
+  min-width: 30%;
+}
+
+.mobile .hints, .mobile #extra img {
+  max-width: 100% !important;
+}
+
+/* Classes for individual cards */
+.image40 img { width: 40% !important;}
+.image50 img { width: 50% !important;}
+.image60 img { width: 60% !important;}
+.image70 img { width: 70% !important;}
+.image80 img { width: 80% !important;}
+.image90 img { width: 90% !important;}
+
+.image40 img,
+.image50 img,
+.image60 img,
+.image70 img,
+.image80 img,
+.image90 img {
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.mobile .image40 img,
+.mobile .image50 img,
+.mobile .image60 img,
+.mobile .image70 img,
+.mobile .image80 img,
+.mobile .image90 img {
+  width: auto !important;
+}
+
+/*Image hover zoom*/
+#extra img:active,
+#notes img:active,
+#missed img:active,
+#pathoma img:active,
+#bnb img:active {
+  transform: scale(1.2);
+}
+
+#firstaid img:active,
+#sketchy img:active,
+#pixorize img:active,
+#physeo img:active,
+#additional img:active {
+  transform: scale(1.5);
+}
+
+.mobile img:active {
+  transform: scale(1.0) !important;
+}
+
+
+/* ~~~~~~~MNEMONICS LEFT JUSTIFIED~~~~~~~ */
+.mnemonics {
+  display: inline-block;
+  text-align: left; /* can change to center to 'turn off' this feature */
+}
+.centerbox {
+  text-align: center;
+}
+
+
+/* ~~~~~~~~~ ADD-ON CONFIGURATIONS ~~~~~~~~~ */
+/*Compatibility with Image Style Editor add-on*/
+.card {
+  --w: 0%;
+}
+.mobile .card {
+  --w: 100% !important;
+}
+
+/*Max image width for resize images in editor add-on */
+.card [class^=ui-] img {
+  max-width: 100% !important;
+}
+
+/*Compatibility with resize images in editor add-on */
+.resizer {
+  min-width: 0% !important;
+}
+.mobile .resizer {
+  min-width: 100% !important;
+}
+
+/* Fix to make pop-up dictionary images the right size */
+.qtip img {
+  max-width: 95% !important;
+  max-height: 95% !important;
+}
+
+
+/* ~~~~~~ANKING HYPERLINK IMAGE~~~~~~ */
+#pic {
+  opacity: 0.0;
+  font-size: 16px;
+  font-family: Comic Sans !important;
+  font-style: bold;
+  height: 50px;
+  border: 0;
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  display: block;
+}
+
+#pic:hover {
+  opacity: 1;
+  transition: opacity 0.2s ease;
+}
+
+.mobile #pic {
+  display: none;
+}
+
+/* ~~~~~~~~~ TAGS ~~~~~~~~~ */
+/* Container To Fix Tags At Bottom Of Screen */
+#tags-container {
+  position: fixed;
+  bottom: .5px;
+  width: 100%;
+  line-height: .45rem;
+  margin-left: -15px;
+  background-color: transparent;
+}
+
+
+/* Clickable Tags (need to download the add-on) */
+kbd {
+  display: inline-block;
+  letter-spacing: .1px;
+  font-weight: bold;
+  font-size: 10px !important;
+  text-shadow: none !important;
+  padding: 0.05rem 0.1rem !important;
+  margin: 1px !important;
+  border-radius: 4px;
+  border-width: 1.5px !important;
+  border-style: solid;
+  background-color: transparent !important;
+  box-shadow: none !important;
+  opacity: 0.5;
+  vertical-align: middle !important;
+  line-height: auto !important;
+  height: auto !important;
+}
+
+/* Tag Becomes More Visible On Hover */
+kbd:hover {
+  opacity: 1;
+  transition: opacity 0.2s ease;
+}
+
+/* Tag Colors */
+kbd:nth-of-type(1n+0) { border-color: #F44336; color: #F44336!important; }
+kbd:nth-of-type(2n+0) { border-color: #9C27B0; color: #9C27B0!important; }
+kbd:nth-of-type(3n+0) { border-color: #3F51B5; color: #3F51B5!important; }
+kbd:nth-of-type(4n+0) { border-color: #03A9F4; color: #03A9F4!important; }
+kbd:nth-of-type(5n+0) { border-color: #009688; color: #009688!important; }
+kbd:nth-of-type(6n+0) { border-color: #C0CA33; color: #C0CA33!important; }
+kbd:nth-of-type(7n+0) { border-color: #FF9800; color: #FF9800!important;}
+kbd:nth-of-type(8n+0) { border-color: #FF5722; color: #FF5722!important; }
+kbd:nth-of-type(9n+0) { border-color: #9E9E9E; color: #9E9E9E!important; }
+kbd:nth-of-type(10n+0) { border-color: #607D8B; color: #607D8B!important; }
+
+/* Tag Mobile Adjustments */
+.mobile kbd {
+  opacity: .9;
+  margin: 1px !important;
+  display: inline-block;
+  font-size: 10px !important;
+}
+.mobile #tags-container {
+  line-height: 0.6rem;
+  margin-left: 0px;
+}
+
+
+/* OME BANNER */
+.banner-ome {
+  max-width: 300px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+.mobile .banner-ome {
+  display: none;
+}
+
+#button-ome {
+  display: none;
+}
+.mobile #button-ome {
+  display: inline;
+}
+
+
+/* ~~~~~~~~~BUTTON LAYOUT~~~~~~~~~ */
+.button-general {
+  outline: 0;
+  border-radius: 0.12em;
+  border: 1px solid #525253 !important;
+  padding: 5px 5px;
+  text-align: center;
+  display: inline-block;
+  font-size: 9.5px;
+  background-color: #424242;
+  color: #AFAFAF !important;
+  margin-top: 8px;
+}
+
+.mobile .button-general {
+  font-size: 18px;
+  padding: 9px 7px;
+}
+
+.expanded-button {
+  display: block;
+  margin: auto;
+  margin-top: 10px;
+  font-weight: bold;
+  width: 50% !important;
+  background: #ababab !important;
+  color: black !important;
+  font-weight: bold;
+  width: 50% !important;
+}
+
+
+#button-mq:not(.expanded-button) {
+  color: #c26165 !important;
+}
+
+
+html:not(.mobile) .button-general:hover {
+  cursor: default;
+  background-color: #E9E9E9 !important;
+  color: #363638 !important;
+}
+
+html:not(.mobile) #button-mq:hover {
+  background-color: #FA8072 !important;
+  color: black !important;
+}
+
+html:not(.mobile) #button-pat:hover {
+  background-color: #EABCE4 !important;
+}
+
+html:not(.mobile) #button-fa:hover {
+  background-color: #FFF1B8 !important;
+}
+
+html:not(.mobile) #button-sketchy:hover {
+  background-color: #7EDEC0 !important;
+}
+
+html:not(.mobile) #button-pixorize:hover {
+  background-color: #ea8eed !important;
+}
+
+html:not(.mobile) #button-physeo:hover {
+  background-color: #A1C0C6 !important;
+}
+
+html:not(.mobile) #button-ome:hover {
+  background-color: #47C3F3 !important;
+}
+
+</style><!-- version 120f234 -->
+<div id="text">
+    <div>What <u>fine motor</u> <i>developmental milestone(s)</i> are expected in a<b> 6 month old</b>?
+        <div><br></div>
+        <div><span class=cloze>[1.0 / t-W-o     / thRee]</span></div>
+    </div>
+    <div><br></div>
+    <div><br></div>
+    <div>Which is better <span class=cloze>[       Passing       / Not Passing]</span></div>
+</div>
+
+<br>
+
+<!-- ##############  Text-to-speech  ##############
+replace the arrows/dashes from the statement below with double curly brackets-->
+
+<!--tts en_US voices=Apple_Samantha speed=1.4:cloze:Text-->
+
+
+<script>
+// ############## USER CONFIGURATION START ##############
+// Auto flip to back when One by one mode.
+var autoflip = false
+
+// Timer config (timer length, timer finished message)
+var minutes = 0
+var seconds = 9
+var timeOverMsg = "<span style='color:#CC5B5B'>!<br/>!<br/>!<br/>!<br/>!<br/>!</span>"
+
+// ##############  TAG SHORTCUT  ##############
+var toggleTagsShortcut = "C";
+
+// ENTER THE TAG TERM WHICH, WHEN PRESENT, WILL TRIGGER A RED BACKGROUND
+var tagID = "XXXYYYZZZ"
+
+// WHETHER THE WHOLE TAG OR ONLY THE LAST PART SHOULD BE SHOWN
+
+var numTagLevelsToShow = 0;
+
+// ############## USER CONFIGURATION END ##############
+
+
+</script>
+
+
+<!-- CLOZE ONE BY ONE AUTOFLIP -->
+<script>
+  var clozeOneByOneEnabled = true;
+  try {
+    clozeOneByOneEnabled = `` !== ""
+  } catch (exception) {
+    console.log(exception)
+  }
+
+  window.clozeHints = [];
+  if (clozeOneByOneEnabled) {
+    // Save cloze hints to display in the back
+    let clozes = document.getElementsByClassName("cloze")
+    for(var i = 0; i < clozes.length; i++) {
+      if (clozes[i].innerHTML === "[...]") {
+        window.clozeHints.push("")
+      } else {
+        window.clozeHints.push(clozes[i].innerHTML)
+      }
+    }
+
+    if(autoflip) {
+      // avoid flickering. Must unset this in the back.
+      document.getElementById("qa").style.display = "none";
+
+      if (window.pycmd) {
+        pycmd("ans")
+      } else if (window.showAnswer) {
+        showAnswer()
+      }
+      // AnkiMobile JS API doesn't have one for show answer.
+      // Best alternative is to use Taps/Swipes to show answer.
+    }
+  }
+
+
+</script>
+
+<!-- NOT-PERSISTING EVENT LISTENER -->
+<script>
+  if (window.ankingEventListeners) {
+    for (const listener of ankingEventListeners) {
+      const type = listener[0]
+      const handler = listener[1]
+      document.removeEventListener(type, handler)
+    }
+  }
+  window.ankingEventListeners = []
+
+  window.ankingAddEventListener = function(type, handler) {
+    document.addEventListener(type, handler)
+    window.ankingEventListeners.push([type, handler])
+  }
+
+
+</script>
+
+<!-- Shortcut Matcher Function -->
+<script>
+  var specialCharCodes = {
+    "-": "minus",
+    "=": "equal",
+    "[": "bracketleft",
+    "]": "bracketright",
+    ";": "semicolon",
+    "'": "quote",
+    "`": "backquote",
+    "\\": "backslash",
+    ",": "comma",
+    ".": "period",
+    "/": "slash",
+  };
+  // Returns function that match keyboard event to see if it matches given shortcut.
+  function shortcutMatcher(shortcut) {
+    let shortcutKeys = shortcut.toLowerCase().split(/[+]/).map(key => key.trim())
+    let mainKey = shortcutKeys[shortcutKeys.length - 1]
+    if (mainKey.length === 1) {
+      if (/\d/.test(mainKey)) {
+        mainKey = "digit" + mainKey
+      } else if (/[a-zA-Z]/.test(mainKey)) {
+        mainKey = "key" + mainKey
+      } else {
+        let code = specialCharCodes[mainKey];
+        if (code) {
+          mainKey = code
+        }
+      }
+    }
+    let ctrl = shortcutKeys.includes("ctrl")
+    let shift = shortcutKeys.includes("shift")
+    let alt = shortcutKeys.includes("alt")
+
+    let matchShortcut = function (ctrl, shift, alt, mainKey, event) {
+      if (mainKey !== event.code.toLowerCase()) return false
+      if (ctrl !== (event.ctrlKey || event.metaKey)) return false
+      if (shift !== event.shiftKey) return false
+      if (alt !== event.altKey) return false
+      return true
+    }.bind(window, ctrl, shift, alt, mainKey)
+
+    return matchShortcut
+  }
+
+
+</script>
+
+<!-- COUNTDOWN TIMER -->
+<div class="timer" id="s2"></div>
+<script>
+  function countdown(elementName, minutes, seconds) {
+    var element, endTime, mins, msLeft, time;
+    function twoDigits( n ) {
+      return (n <= 9 ? "0" + n : n);
+    }
+    function updateTimer() {
+      msLeft = endTime - (+new Date);
+
+      if ( msLeft < 1000 ) {
+        element.innerHTML = timeOverMsg;
+      } else {
+        time = new Date( msLeft );
+        mins = time.getUTCMinutes();
+        element.innerHTML = mins + ':' + twoDigits(time.getUTCSeconds());
+        setTimeout( updateTimer, time.getUTCMilliseconds() + 500 );
+      }
+    }
+    element = document.getElementById(elementName);
+    endTime = (+new Date) + 1000 * (60*minutes + seconds) + 500;
+    updateTimer();
+  }
+  countdown("s2", minutes, seconds ); //2nd value is the minute, 3rd is the seconds
+
+
+</script>
+
+
+<!-- ANKING HYPERLINK IMAGE -->
+<a href="https://www.ankingmed.com"><img src="_AnKingRound.png" alt="The AnKing" id="pic"></a>
+
+
+<script>
+    //DONT FADE BETWEEN CARDS
+        qFade=0; if (typeof anki !== 'undefined') anki.qFade=qFade;
+
+
+</script>
+
+<!-- CLICKABLE COLORFUL TAGS -->
+
+<div id="tags-container">#AK_Original_Decks::Step_2::Zanki_Step_2 #AK_Step2_v11::!Shelf::#Cards_AnKing_Did::3peds
+    #AK_Step2_v11::!Shelf::Peds::no_dupes #AK_Step2_v11::!Shelf::Peds::no_dupes::only_step2
+    #AK_Step2_v11::#OME::11_Pediatrics::07_Well_Child #AK_Step2_v11::#OME_banner::Clinical::11_Pediatrics::07_Well_Child
+    #AK_Step2_v11::#Resources_by_rotation::Peds::uworld::developmental_milestones_vaccines::developmental_milestones_vaccines_zanki
+    #AK_Step2_v11::#Subjects::Obstetrics_&_Gynecology::03_Pediatrics::03_Development::Developmental_Milestones
+    #AK_Step2_v11::Original_decks::Zanki_Step_2::Peds::Developmental_Milestones_&_Vaccines
+</div>
+<script>
+  var tagContainer = document.getElementById("tags-container")
+  if (tagContainer.childElementCount == 0) {
+    var tagList = tagContainer.innerHTML.split(" ");
+    var kbdList = [];
+    var newTagContent = document.createElement("div");
+
+    for (var i = 0; i < tagList.length; i++) {
+      var newTag = document.createElement("kbd");
+      var tag = tagList[i];
+      // numTagLevelsToShow == 0 means the whole tag should be shown
+      if(numTagLevelsToShow != 0){
+        tag = tag.split('::').slice(-numTagLevelsToShow).join("::");
+      }
+      newTag.innerHTML = tag;
+      newTagContent.append(newTag)
+    }
+    tagContainer.innerHTML = newTagContent.innerHTML;
+    tagContainer.style.cursor = "default";
+  }
+  if (tagContainer.innerHTML.indexOf(tagID) != -1) {
+    tagContainer.style.backgroundColor = "rgba(251,11,11,.15)";
+  }
+
+  function showtags() {
+    var tagContainerShortcut = document.getElementById("tags-container");
+
+    if (tagContainerShortcut.style.display
+      === "none") {
+      tagContainerShortcut.style.display = "block";
+    } else {
+      tagContainerShortcut.style.display =
+        "none";
+    }
+  }
+
+  var isShortcut = shortcutMatcher(toggleTagsShortcut)
+  ankingAddEventListener('keyup', function (e) {
+      if (isShortcut(e)) {
+          showtags();
+      }
+  });
+
+
+
+</script>
